@@ -1,6 +1,6 @@
 package main
 
-var kudu = new(app)
+var kudu app
 
 func init() {
 	kudu.bootstrap()
