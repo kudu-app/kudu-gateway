@@ -1,8 +1,6 @@
 package db
 
 import (
-	"time"
-
 	"github.com/knq/firebase"
 )
 
@@ -11,8 +9,8 @@ var ItemRef *firebase.DatabaseRef
 type Item struct {
 	Goal    string                   `json:"goal"`
 	Tag     string                   `json:"tag"`
+	Notes   string                   `json:"notes"`
 	Created firebase.ServerTimestamp `json:"created"`
-	DueDate time.Time                `json:"due_date"`
 }
 
 func (i *Item) Index(keys *map[string]interface{}) error {

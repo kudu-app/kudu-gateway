@@ -7,4 +7,7 @@
 - [ ] gRPC + gRPC-gateway
 - [ ] Build react server for rendering html content
 - [ ] Make docker & rkt container
-- [ ] Additional features
+
+### TODO
+- [ ] Accept markdown syntax on `item.Notes`
+- [ ] Query items by value
