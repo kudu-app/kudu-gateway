@@ -1,10 +1,34 @@
 {
-    "memo": "343a47173498f4b0e629835f51897854fd2814203e4713d5f9ae30f2a03071b0",
+    "memo": "c243b3dba8c6e5cb015aae50209add51114d803fb4281031c57fde7e92a1c113",
     "projects": [
+        {
+            "name": "cloud.google.com/go",
+            "version": "v0.7.0",
+            "revision": "2e6a95edb1071d750f6d7db777bf66cd2997af6c",
+            "packages": [
+                "compute/metadata"
+            ]
+        },
         {
             "name": "github.com/fsnotify/fsnotify",
             "version": "v1.4.2",
             "revision": "629574ca2a5df945712d3079857300b5e4da0236",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/golang/protobuf",
+            "branch": "master",
+            "revision": "c9c7427a2a70d2eb3bafa0ab2dc163e45f143317",
+            "packages": [
+                "proto"
+            ]
+        },
+        {
+            "name": "github.com/googleapis/gax-go",
+            "branch": "master",
+            "revision": "9af46dd5a1713e8b5cd71106287eba3cefdde50b",
             "packages": [
                 "."
             ]
@@ -29,6 +53,30 @@
             "name": "github.com/hashicorp/hcl",
             "branch": "master",
             "revision": "630949a3c5fa3c613328e1b8256052cbc2327c9b",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/knq/firebase",
+            "branch": "master",
+            "revision": "ac317d340ae62f2f32ced3fd6f98f6a0bf9660ac",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/knq/jwt",
+            "branch": "master",
+            "revision": "b8acfb9b22cac2bd72f7d7555c46664a5df3d2a6",
+            "packages": [
+                "gserviceaccount"
+            ]
+        },
+        {
+            "name": "github.com/knq/pemutil",
+            "branch": "master",
+            "revision": "a128105dd4897e4b763d54cb548222f70c4a6622",
             "packages": [
                 "."
             ]
@@ -122,6 +170,27 @@
             ]
         },
         {
+            "name": "golang.org/x/net",
+            "branch": "master",
+            "revision": "a6577fac2d73be281a500b310739095313165611",
+            "packages": [
+                "context",
+                "context/ctxhttp",
+                "http2",
+                "http2/hpack",
+                "trace"
+            ]
+        },
+        {
+            "name": "golang.org/x/oauth2",
+            "branch": "master",
+            "revision": "7fdf09982454086d5570c7db3e11f360194830ca",
+            "packages": [
+                ".",
+                "google"
+            ]
+        },
+        {
             "name": "golang.org/x/sys",
             "branch": "master",
             "revision": "99f16d856c9836c42d24e7ab64ea72916925fa97",
@@ -136,6 +205,24 @@
             "packages": [
                 "transform",
                 "unicode/norm"
+            ]
+        },
+        {
+            "name": "google.golang.org/appengine",
+            "version": "v1.0.0",
+            "revision": "150dc57a1b433e64154302bdc40b6bb8aefa313a",
+            "packages": [
+                ".",
+                "urlfetch"
+            ]
+        },
+        {
+            "name": "google.golang.org/grpc",
+            "version": "v1.2.0",
+            "revision": "cdee119ee21e61eef7093a41ba148fa83585e143",
+            "packages": [
+                ".",
+                "codes"
             ]
         },
         {

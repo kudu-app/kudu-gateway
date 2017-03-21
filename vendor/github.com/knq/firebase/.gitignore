@@ -1,0 +1,7 @@
+*.json
+
+firebase-rules
+firebase-monitor
+firebase-merge
+firebase-get
+firebase-genid
