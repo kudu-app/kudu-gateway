@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/knq/firebase"
+	"github.com/rnd/kudu/db"
 	"github.com/rnd/kudu/item"
 	"github.com/rnd/kudu/router"
 	"github.com/spf13/viper"
@@ -34,6 +36,11 @@ func (a *app) bootstrap() {
 	}
 
 	a.route = registerRoutes()
+
+	err = setupFirebase()
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func registerConfig() (*viper.Viper, error) {
@@ -55,4 +62,12 @@ func registerRoutes() http.Handler {
 	}
 
 	return r
+}
+
+func setupFirebase() error {
+	var err error
+	db.ItemRef, err = firebase.NewDatabaseRef(
+		firebase.GoogleServiceAccountCredentialsFile(kudu.config.GetString("firebase.item.cred")),
+	)
+	return err
 }

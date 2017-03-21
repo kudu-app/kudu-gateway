@@ -2,10 +2,7 @@ package main
 
 var kudu app
 
-func init() {
-	kudu.bootstrap()
-}
-
 func main() {
+	kudu.bootstrap()
 	kudu.run()
 }

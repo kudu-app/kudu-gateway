@@ -1,2 +1,4 @@
 port : 8181
-test : "Hello from kudu"
+firebase:
+  item:
+      cred: ./creds/kudu-b10af99e635e.json
