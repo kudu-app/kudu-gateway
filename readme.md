@@ -1,9 +1,10 @@
-### Roadmap
+### Goals
 
 - [X] Manage dependecies using [golang/dep](https://github.com/golang/dep)
 - [X] Integrate with [firebase](https://firebase.google.com/)
 - [ ] Write unit tests
-- [ ] Google cloud functions
+- [ ] Setup [travis](https://travis-ci.org)
+- [ ] Google [cloud functions](https://cloud.google.com/functions/)
 - [ ] gRPC + gRPC-gateway
 - [ ] Build react server for rendering html content
 - [ ] Make docker & rkt container
