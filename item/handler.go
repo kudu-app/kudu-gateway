@@ -39,6 +39,12 @@ func Post(w http.ResponseWriter, req *http.Request) {
 	}
 	defer req.Body.Close()
 
+	if item.Goal == "" {
+		r.JSON(w, http.StatusBadRequest,
+			map[string]string{"error": "Goal cannot be empty"})
+		return
+	}
+
 	id, err := item.Add()
 	if err != nil {
 		log.Print(err)

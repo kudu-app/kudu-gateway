@@ -10,5 +10,6 @@
 - [ ] Make docker & rkt container
 
 ### TODO
+- [ ] Add documentations
 - [ ] Accept markdown syntax on `item.Notes`
 - [ ] Query items by value
