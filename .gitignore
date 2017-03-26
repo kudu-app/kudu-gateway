@@ -1,2 +1,2 @@
-kudu
+cmd/kudu/kudu
 vendor

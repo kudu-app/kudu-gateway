@@ -1,4 +1,0 @@
-port : 8181
-firebase:
-  item:
-      cred: ./creds/kudu-b10af99e635e.json
