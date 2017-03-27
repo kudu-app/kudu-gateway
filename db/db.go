@@ -6,10 +6,10 @@ import (
 
 var Item *firebase.DatabaseRef
 
-func Setup(credPath string) error {
+func Setup(path string) error {
 	var err error
 	Item, err = firebase.NewDatabaseRef(
-		firebase.GoogleServiceAccountCredentialsFile(credPath),
+		firebase.GoogleServiceAccountCredentialsFile(path),
 	)
 	return err
 }

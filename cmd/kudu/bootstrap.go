@@ -29,23 +29,23 @@ func (a *app) run() {
 func (a *app) bootstrap() {
 	var err error
 
-	a.config, err = registerConfig()
+	a.config, err = registerConfig("$GOPATH/src/github.com/rnd/kudu")
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	a.route = registerRoutes()
 
-	err = setupDatabase(a.config.GetString("firebase.item.cred"))
+	err = setupDatabase(a.config.GetString("google.creds.data"))
 	if err != nil {
 		log.Fatal(err)
 	}
 }
 
-func registerConfig() (*viper.Viper, error) {
+func registerConfig(path string) (*viper.Viper, error) {
 	v := viper.New()
 	v.SetConfigName("config")
-	v.AddConfigPath(".")
+	v.AddConfigPath(path)
 	return v, v.ReadInConfig()
 }
 
@@ -63,6 +63,6 @@ func registerRoutes() http.Handler {
 	return r
 }
 
-func setupDatabase(credPath string) error {
-	return db.Setup(credPath)
+func setupDatabase(path string) error {
+	return db.Setup(path)
 }

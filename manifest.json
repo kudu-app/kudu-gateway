@@ -3,9 +3,6 @@
         "github.com/gorilla/mux": {
             "branch": "master"
         },
-        "github.com/spf13/viper": {
-            "branch": "master"
-        },
         "github.com/unrolled/render": {
             "branch": "v1"
         },
