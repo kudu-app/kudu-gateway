@@ -1,10 +1,9 @@
-package db
+package item
 
 import (
 	"github.com/knq/firebase"
+	"github.com/rnd/kudu/db"
 )
-
-var ItemRef *firebase.DatabaseRef
 
 type Item struct {
 	Goal    string                   `json:"goal"`
@@ -14,25 +13,25 @@ type Item struct {
 }
 
 func (i *Item) Index(keys *map[string]interface{}) error {
-	return ItemRef.Ref("/item").Get(keys)
+	return db.Item.Ref("/item").Get(keys)
 }
 
 func (i *Item) Add() (string, error) {
-	return ItemRef.Ref("/item").Push(i)
+	return db.Item.Ref("/item").Push(i)
 }
 
 func (i *Item) Get(id string, res *Item) error {
-	return ItemRef.Ref("/item/" + id).Get(res)
+	return db.Item.Ref("/item/" + id).Get(res)
 }
 
 func (i *Item) Set(id string, res *Item) error {
-	return ItemRef.Ref("/item/" + id).Set(res)
+	return db.Item.Ref("/item/" + id).Set(res)
 }
 
 func (i *Item) Update(id string, res *Item) error {
-	return ItemRef.Ref("/item/" + id).Update(res)
+	return db.Item.Ref("/item/" + id).Update(res)
 }
 
 func (i *Item) Delete(id string) error {
-	return ItemRef.Ref("/item/" + id).Remove()
+	return db.Item.Ref("/item/" + id).Remove()
 }
