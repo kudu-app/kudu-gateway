@@ -1,3 +1,5 @@
+# Kudu [![Build Status](https://travis-ci.org/rnd/kudu.svg?branch=master)](https://travis-ci.org/rnd/kudu) [![Coverage Status](https://coveralls.io/repos/github/rnd/kudu/badge.svg?branch=master)](https://coveralls.io/github/rnd/kudu?branch=master)
+
 ### Goals
 
 - [X] Manage dependecies using [golang/dep](https://github.com/golang/dep)
