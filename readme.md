@@ -11,7 +11,9 @@
 - [ ] Build react server for rendering html content
 - [ ] Make docker & rkt container
 
+
 ### TODO
-- [ ] Add documentations
-- [ ] Accept markdown syntax on `item.Notes`
-- [ ] Query items by value
+- [ ] Support markdown on `item.Notes`
+- [ ] Life calendar
+
+### NOTE: This app is under development.
