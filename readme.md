@@ -1,4 +1,4 @@
-# Kudu [![Build Status](https://travis-ci.org/rnd/kudu.svg?branch=master)](https://travis-ci.org/rnd/kudu) [![Coverage Status](https://coveralls.io/repos/github/rnd/kudu/badge.svg?branch=master)](https://coveralls.io/github/rnd/kudu?branch=master)
+# Kudu [![Build Status](https://travis-ci.org/rnd/kudu.svg?branch=master)](https://travis-ci.org/rnd/kudu) [![Coverage Status](https://coveralls.io/repos/github/rnd/kudu/badge.svg?branch=master)](https://coveralls.io/github/rnd/kudu?branch=master) [![Go Report Card](https://goreportcard.com/badge/github.com/rnd/kudu)](https://goreportcard.com/report/github.com/rnd/kudu)
 
 ### Goals
 
