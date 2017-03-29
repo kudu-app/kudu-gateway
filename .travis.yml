@@ -8,6 +8,8 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_5e5420550d08_key -iv $encrypted_5e5420550d08_iv
   -in testdata/credentials.tar.gz.enc -out credentials.tar.gz -d
 - tar -xzf credentials.tar.gz -C testdata/creds
+- go get -u github.com/golang/dep/...
 - go get github.com/mattn/goveralls
 script:
-- "$HOME/gopath/bin/goveralls -service=travis-ci"
+- dep ensure
+- goveralls -service=travis-ci
