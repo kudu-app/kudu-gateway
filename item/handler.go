@@ -7,18 +7,17 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/rnd/kudu/db/item"
 	"github.com/unrolled/render"
 )
 
 var r = render.New()
-var itemReq item.Item
+var item Item
 
 func Index(w http.ResponseWriter, req *http.Request) {
 	var err error
 	res := make(map[string]interface{})
 
-	err = itemReq.Index(&res)
+	err = item.Index(&res)
 	if err != nil {
 		log.Print(err)
 		r.JSON(w, http.StatusInternalServerError,
@@ -32,20 +31,20 @@ func Post(w http.ResponseWriter, req *http.Request) {
 	var err error
 
 	decoder := json.NewDecoder(req.Body)
-	if err := decoder.Decode(&itemReq); err != nil {
+	if err := decoder.Decode(&item); err != nil {
 		r.JSON(w, http.StatusBadGateway,
 			map[string]string{"error": "Invalid request payload"})
 		return
 	}
 	defer req.Body.Close()
 
-	if itemReq.Goal == "" {
+	if item.Goal == "" {
 		r.JSON(w, http.StatusBadRequest,
 			map[string]string{"error": "Goal cannot be empty"})
 		return
 	}
 
-	id, err := itemReq.Add()
+	id, err := item.Add()
 	if err != nil {
 		log.Print(err)
 		r.JSON(w, http.StatusInternalServerError,
@@ -57,11 +56,11 @@ func Post(w http.ResponseWriter, req *http.Request) {
 
 func Get(w http.ResponseWriter, req *http.Request) {
 	var err error
-	var itemRes item.Item
+	var res Item
 
 	vars := mux.Vars(req)
 
-	err = itemReq.Get(vars["id"], &itemRes)
+	err = item.Get(vars["id"], &res)
 	if err != nil {
 		log.Print(err)
 		r.JSON(w, http.StatusInternalServerError,
@@ -69,10 +68,10 @@ func Get(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	if itemRes.Created.Time().IsZero() {
+	if res.Created.Time().IsZero() {
 		r.JSON(w, http.StatusNotFound,
 			map[string]string{"error": fmt.Sprintf("Could not find specified item with id: %s", vars["id"])})
 		return
 	}
-	r.JSON(w, http.StatusOK, itemRes)
+	r.JSON(w, http.StatusOK, res)
 }
