@@ -74,17 +74,66 @@ func TestAdd(t *testing.T) {
 }
 
 func TestGet(t *testing.T) {
+	var err error
+	var res Item
 
-}
+	item = Item{
+		Goal:  "Foo",
+		Tag:   "Bar",
+		Notes: "Baz",
+	}
 
-func TestSet(t *testing.T) {
+	key, err := item.Add()
+	if err != nil {
+		t.Error(err)
+	}
 
+	err = item.Get(key, &res)
+	if err != nil {
+		t.Error(err)
+	}
 }
 
 func TestUpdate(t *testing.T) {
+	var err error
 
+	item = Item{
+		Goal:  "Foo",
+		Tag:   "Bar",
+		Notes: "Baz",
+	}
+
+	key, err := item.Add()
+	if err != nil {
+		t.Error(err)
+	}
+
+	item.Goal = "FooBar"
+	err = item.Update(key, &item)
+	if err != nil {
+		t.Error(err)
+	}
+	if item.Goal != "FooBar" {
+		t.Errorf("Expected goal value to be 'FooBar' got: %s", item.Goal)
+	}
 }
 
 func TestDelete(t *testing.T) {
+	var err error
 
+	item = Item{
+		Goal:  "Foo",
+		Tag:   "Bar",
+		Notes: "Baz",
+	}
+
+	key, err := item.Add()
+	if err != nil {
+		t.Error(err)
+	}
+
+	err = item.Delete(key)
+	if err != nil {
+		t.Error(err)
+	}
 }

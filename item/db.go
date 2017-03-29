@@ -28,10 +28,6 @@ func (i *Item) Get(id string, res *Item) error {
 	return db.Item.Ref("/item/" + id).Get(res)
 }
 
-func (i *Item) Set(id string, res *Item) error {
-	return db.Item.Ref("/item/" + id).Set(res)
-}
-
 func (i *Item) Update(id string, res *Item) error {
 	return db.Item.Ref("/item/" + id).Update(res)
 }
