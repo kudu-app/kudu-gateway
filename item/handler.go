@@ -15,8 +15,8 @@ var item Item
 
 func Index(w http.ResponseWriter, req *http.Request) {
 	var err error
-	res := make(map[string]interface{})
 
+	res := make(map[string]interface{})
 	err = item.Index(&res)
 	if err != nil {
 		log.Print(err)

@@ -12,6 +12,10 @@ type Item struct {
 	Created firebase.ServerTimestamp `json:"created"`
 }
 
+func (i *Item) Keys(keys *map[string]interface{}) error {
+	return db.Item.Ref("/item").Get(keys, firebase.Shallow)
+}
+
 func (i *Item) Index(keys *map[string]interface{}) error {
 	return db.Item.Ref("/item").Get(keys)
 }

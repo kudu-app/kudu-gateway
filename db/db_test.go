@@ -5,12 +5,12 @@ import (
 	"testing"
 )
 
-var TestDataDir = os.Getenv("GOPATH") + "/src/github.com/rnd/kudu/testdata/"
+var testDataDir = os.Getenv("GOPATH") + "/src/github.com/rnd/kudu/testdata/"
 
 func TestSetup(t *testing.T) {
 	var err error
 
-	err = Setup(TestDataDir + "creds/test-datacreds.json")
+	err = Setup(testDataDir + "creds/test-datacreds.json")
 	if err != nil {
 		t.Error(err)
 	}
@@ -19,10 +19,10 @@ func TestSetup(t *testing.T) {
 func TestSetupWithInvalidPath(t *testing.T) {
 	var err error
 
-	err = Setup(TestDataDir + "foo/bar.json")
+	err = Setup(testDataDir + "foo/bar.json")
 	if err == nil {
 		t.Errorf(
 			"Expected setup to fail with invalid credential path: %s",
-			TestDataDir+"foo/bar.json")
+			testDataDir+"foo/bar.json")
 	}
 }
