@@ -12,11 +12,13 @@ import (
 	"github.com/urfave/negroni"
 )
 
+// app contains information needed to start kudu application.
 type app struct {
 	config *viper.Viper
 	route  http.Handler
 }
 
+// run starts kudu web server on specified port.
 func (a *app) run() {
 	n := negroni.New()
 	n.Use(negroni.NewLogger())
@@ -26,6 +28,7 @@ func (a *app) run() {
 	n.Run(addr)
 }
 
+// bootstrap prepare and do preprocess works before actually running kudu application.
 func (a *app) bootstrap() {
 	var err error
 
@@ -42,6 +45,7 @@ func (a *app) bootstrap() {
 	}
 }
 
+// registerConfig registers kudu configuration file.
 func registerConfig(path string) (*viper.Viper, error) {
 	v := viper.New()
 	v.SetConfigName("config")
@@ -49,6 +53,7 @@ func registerConfig(path string) (*viper.Viper, error) {
 	return v, v.ReadInConfig()
 }
 
+// registerRoutes registers kudu web routes.
 func registerRoutes() http.Handler {
 	r := router.Init()
 
@@ -63,6 +68,7 @@ func registerRoutes() http.Handler {
 	return r
 }
 
+// setupDatabase setup firebase database.
 func setupDatabase(path string) error {
 	return db.Setup(path)
 }

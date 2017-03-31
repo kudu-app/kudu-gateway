@@ -13,6 +13,7 @@ import (
 var r = render.New()
 var item Item
 
+// Index retreives list of item.
 func Index(w http.ResponseWriter, req *http.Request) {
 	var err error
 
@@ -27,6 +28,7 @@ func Index(w http.ResponseWriter, req *http.Request) {
 	r.JSON(w, http.StatusOK, res)
 }
 
+// Post adds new item.
 func Post(w http.ResponseWriter, req *http.Request) {
 	var err error
 
@@ -54,6 +56,7 @@ func Post(w http.ResponseWriter, req *http.Request) {
 	r.JSON(w, http.StatusCreated, map[string]string{"created": id})
 }
 
+// Get retreives specified item based on request parameter.
 func Get(w http.ResponseWriter, req *http.Request) {
 	var err error
 	var res Item

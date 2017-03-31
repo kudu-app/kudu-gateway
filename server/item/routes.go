@@ -6,6 +6,7 @@ import (
 	"github.com/rnd/kudu/server/router"
 )
 
+// Routes return all item routes.
 func Routes() []*router.Route {
 	return []*router.Route{
 		{
