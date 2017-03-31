@@ -13,12 +13,12 @@ type Item struct {
 	Created firebase.ServerTimestamp `json:"created"`
 }
 
-// Keys retreive all /item keys.
+// Keys retrieves all /item keys.
 func (i *Item) Keys(keys *map[string]interface{}) error {
 	return db.Item.Ref("/item").Get(keys, firebase.Shallow)
 }
 
-// Index retreive all /item values.
+// Index retrieves all /item values.
 func (i *Item) Index(keys *map[string]interface{}) error {
 	return db.Item.Ref("/item").Get(keys)
 }
@@ -28,7 +28,7 @@ func (i *Item) Add() (string, error) {
 	return db.Item.Ref("/item").Push(i)
 }
 
-// Get retreive item which have specified id.
+// Get retrieves item which have specified id.
 func (i *Item) Get(id string, res *Item) error {
 	return db.Item.Ref("/item/" + id).Get(res)
 }
@@ -38,7 +38,7 @@ func (i *Item) Update(id string, res *Item) error {
 	return db.Item.Ref("/item/" + id).Update(res)
 }
 
-// Delete remove item which have specified id.
+// Delete removes item which have specified id.
 func (i *Item) Delete(id string) error {
 	return db.Item.Ref("/item/" + id).Remove()
 }
