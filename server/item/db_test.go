@@ -22,7 +22,7 @@ func testClear() {
 		log.Fatal(err)
 	}
 
-	for key, _ := range keys {
+	for key := range keys {
 		err = testItem.Delete(key)
 		if err != nil {
 			log.Fatal(err)
