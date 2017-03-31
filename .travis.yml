@@ -5,11 +5,12 @@ go:
 - tip
 before_install:
 - openssl aes-256-cbc -K $encrypted_5e5420550d08_key -iv $encrypted_5e5420550d08_iv
-  -in testdata/credentials.tar.gz.enc -out credentials.tar.gz -d
-- tar -xzf credentials.tar.gz -C testdata/creds
+  -in server/testdata/credentials.tar.gz.enc -out credentials.tar.gz -d
+- tar -xzf credentials.tar.gz -C server/testdata/creds
 - go get -u github.com/golang/dep/...
 - go get github.com/mattn/goveralls
 script:
+- cd server
 - dep ensure
 - go test -v $(go list ./... | grep -v /vendor)
 - goveralls -service=travis-ci

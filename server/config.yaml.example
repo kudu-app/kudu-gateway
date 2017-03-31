@@ -1,0 +1,4 @@
+port : 8181
+firebase:
+  item:
+      cred: ../../creds/firebase.json

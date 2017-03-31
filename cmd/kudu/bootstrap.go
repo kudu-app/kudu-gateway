@@ -5,9 +5,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/rnd/kudu/db"
-	"github.com/rnd/kudu/item"
-	"github.com/rnd/kudu/router"
+	"github.com/rnd/kudu/server/db"
+	"github.com/rnd/kudu/server/item"
+	"github.com/rnd/kudu/server/router"
 	"github.com/spf13/viper"
 	"github.com/urfave/negroni"
 )
@@ -29,7 +29,7 @@ func (a *app) run() {
 func (a *app) bootstrap() {
 	var err error
 
-	a.config, err = registerConfig("$GOPATH/src/github.com/rnd/kudu")
+	a.config, err = registerConfig("$GOPATH/src/github.com/rnd/kudu/server")
 	if err != nil {
 		log.Fatal(err)
 	}
