@@ -6,7 +6,7 @@
 - [X] Setup [travis](https://travis-ci.org)
 - [X] Google [cloud functions](https://cloud.google.com/functions/)
 - [X] Support markdown on `item.Notes`
-- [ ] Write unit tests
+- [X] Write unit tests
 - [ ] Test generated html from firebase cloud functions
 - [ ] gRPC + gRPC-gateway
 - [ ] Build react server for rendering html content
