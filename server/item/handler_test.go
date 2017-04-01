@@ -1,6 +1,8 @@
 package item
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -30,7 +32,16 @@ func TestIndexHandler(t *testing.T) {
 }
 
 func TestPostHandler(t *testing.T) {
-	req, err := http.NewRequest("POST", "/items", nil)
+	var err error
+
+	testData := Item{
+		Goal:  "Foo",
+		Tag:   "Bar",
+		Notes: "Baz",
+	}
+	jsonData, err := json.Marshal(testData)
+
+	req, err := http.NewRequest("POST", "/items", bytes.NewReader(jsonData))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -43,9 +54,42 @@ func TestPostHandler(t *testing.T) {
 	handler := http.HandlerFunc(Post)
 	handler.ServeHTTP(res, req)
 
-	if status := res.Code; status != http.StatusBadGateway {
+	if status := res.Code; status != http.StatusCreated {
 		t.Errorf("Expected response to have status %d : got %d",
-			http.StatusBadGateway, status)
+			http.StatusCreated, status)
+	}
+	if contentType := http.DetectContentType(res.Body.Bytes()); strings.Contains(contentType, "application/json") {
+		t.Errorf("Expected response to have content-type %s : got %s",
+			"application/json", contentType)
+	}
+}
+
+func TestPostHandlerWithInvalidData(t *testing.T) {
+	var err error
+
+	testData := Item{
+		Goal:  "",
+		Tag:   "Bar",
+		Notes: "Baz",
+	}
+	jsonData, err := json.Marshal(testData)
+
+	req, err := http.NewRequest("POST", "/items", bytes.NewReader(jsonData))
+	if err != nil {
+		t.Fatal(err)
+	}
+	req.Header.Set(
+		"Content-Type",
+		"application/json",
+	)
+
+	res := httptest.NewRecorder()
+	handler := http.HandlerFunc(Post)
+	handler.ServeHTTP(res, req)
+
+	if status := res.Code; status != http.StatusBadRequest {
+		t.Errorf("Expected response to have status %d : got %d",
+			http.StatusBadRequest, status)
 	}
 	if contentType := http.DetectContentType(res.Body.Bytes()); strings.Contains(contentType, "application/json") {
 		t.Errorf("Expected response to have content-type %s : got %s",
