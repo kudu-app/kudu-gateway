@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package kudu.types;
+
+option go_package = "github.com/rnd/kudu/protos/types";
+
+import "google/protobuf/timestamp.proto";
+
+message Item {
+  string goal  = 1;
+
+  string tag   = 2;
+
+  string notes = 3;
+}
+
+message PageResponse {
+  string html                         = 1;
+
+  google.protobuf.Timestamp timestamp = 2;
+}

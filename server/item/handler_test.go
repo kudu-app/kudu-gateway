@@ -31,7 +31,7 @@ func TestIndexHandler(t *testing.T) {
 	}
 }
 
-func TestPostHandler(t *testing.T) {
+func TestAddHandler(t *testing.T) {
 	var err error
 
 	testData := Item{
@@ -51,7 +51,7 @@ func TestPostHandler(t *testing.T) {
 	)
 
 	res := httptest.NewRecorder()
-	handler := http.HandlerFunc(Post)
+	handler := http.HandlerFunc(Add)
 	handler.ServeHTTP(res, req)
 
 	if status := res.Code; status != http.StatusCreated {
@@ -64,7 +64,7 @@ func TestPostHandler(t *testing.T) {
 	}
 }
 
-func TestPostHandlerWithInvalidData(t *testing.T) {
+func TestAddHandlerWithInvalidData(t *testing.T) {
 	var err error
 
 	testData := Item{
@@ -84,7 +84,7 @@ func TestPostHandlerWithInvalidData(t *testing.T) {
 	)
 
 	res := httptest.NewRecorder()
-	handler := http.HandlerFunc(Post)
+	handler := http.HandlerFunc(Add)
 	handler.ServeHTTP(res, req)
 
 	if status := res.Code; status != http.StatusBadRequest {

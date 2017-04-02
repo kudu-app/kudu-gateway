@@ -7,10 +7,9 @@
 - [X] Google [cloud functions](https://cloud.google.com/functions/)
 - [X] Support markdown on `item.Notes`
 - [X] Write unit tests
-- [ ] Test generated html from firebase cloud functions
 - [ ] gRPC + gRPC-gateway
 - [ ] Build react server for rendering html content
-- [ ] Make docker & rkt container
 - [ ] Life calendar
+- [ ] Make docker & rkt container
 
 ### NOTE: This app is under development.

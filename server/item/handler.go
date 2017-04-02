@@ -28,8 +28,8 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	response.JSON(w, http.StatusOK, res)
 }
 
-// Post adds new item.
-func Post(w http.ResponseWriter, r *http.Request) {
+// Add adds new item.
+func Add(w http.ResponseWriter, r *http.Request) {
 	var err error
 
 	if r.Body == nil {

@@ -17,7 +17,7 @@ func Routes() []*router.Route {
 		{
 			Method:  http.MethodPost,
 			Path:    "/items",
-			Handler: Post,
+			Handler: Add,
 		},
 		{
 			Method:  http.MethodGet,
