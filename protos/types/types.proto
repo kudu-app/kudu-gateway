@@ -6,6 +6,7 @@ option go_package = "github.com/rnd/kudu/protos/types";
 
 import "google/protobuf/timestamp.proto";
 
+// Item holds item information.
 message Item {
   string goal  = 1;
 
@@ -14,6 +15,7 @@ message Item {
   string notes = 3;
 }
 
+// PageResponse holds html content and response meta data.
 message PageResponse {
   string html                         = 1;
 

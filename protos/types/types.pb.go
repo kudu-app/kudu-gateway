@@ -30,6 +30,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
+// Item holds item information.
 type Item struct {
 	Goal  string `protobuf:"bytes,1,opt,name=goal" json:"goal,omitempty"`
 	Tag   string `protobuf:"bytes,2,opt,name=tag" json:"tag,omitempty"`
@@ -62,6 +63,7 @@ func (m *Item) GetNotes() string {
 	return ""
 }
 
+// PageResponse holds html content and response meta data.
 type PageResponse struct {
 	Html      string                     `protobuf:"bytes,1,opt,name=html" json:"html,omitempty"`
 	Timestamp *google_protobuf.Timestamp `protobuf:"bytes,2,opt,name=timestamp" json:"timestamp,omitempty"`
