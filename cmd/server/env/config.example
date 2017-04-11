@@ -1,0 +1,4 @@
+; kudu item service settings
+
+[app]
+port="$PORT||9111"
