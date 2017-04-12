@@ -29,12 +29,14 @@ func New() *Router {
 }
 
 // RegisterRoutes registers kudu web routes.
-func (router *Router) RegisterRoutes(routes []*Route) {
-	for _, route := range routes {
-		router.r.
-			Methods(route.Method).
-			Path(route.Path).
-			HandlerFunc(route.Handler)
+func (router *Router) RegisterRoutes(routeGroups ...[]*Route) {
+	for _, routes := range routeGroups {
+		for _, route := range routes {
+			router.r.
+				Methods(route.Method).
+				Path(route.Path).
+				HandlerFunc(route.Handler)
+		}
 	}
 }
 
