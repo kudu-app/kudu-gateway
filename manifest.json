@@ -1,0 +1,13 @@
+{
+    "dependencies": {
+        "github.com/gorilla/mux": {
+            "branch": "master"
+        },
+        "github.com/knq/envcfg": {
+            "branch": "master"
+        },
+        "github.com/urfave/negroni": {
+            "branch": "master"
+        }
+    }
+}
