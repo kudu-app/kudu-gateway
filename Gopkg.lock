@@ -1,0 +1,73 @@
+memo = ""
+
+[[projects]]
+  branch = "master"
+  name = "github.com/golang/protobuf"
+  packages = ["proto"]
+  revision = "c9c7427a2a70d2eb3bafa0ab2dc163e45f143317"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/gorilla/context"
+  packages = ["."]
+  revision = "08b5f424b9271eedf6f9f0ce86cb9396ed337a42"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/gorilla/mux"
+  packages = ["."]
+  revision = "599cba5e7b6137d46ddf58fb1765f5d928e69604"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/knq/envcfg"
+  packages = ["."]
+  revision = "ac4e8e89b6508f0d74617f61de7e68a351cc3896"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/knq/ini"
+  packages = ["."]
+  revision = "668e7f44efb09df98684858a6a72bdf96f7a1685"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/knq/jwt"
+  packages = ["."]
+  revision = "b8acfb9b22cac2bd72f7d7555c46664a5df3d2a6"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/knq/pemutil"
+  packages = ["."]
+  revision = "a128105dd4897e4b763d54cb548222f70c4a6622"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/rnd/kudu"
+  packages = ["golang/protogen/item","golang/protogen/type/date"]
+  revision = "02ab9a479b881a449486cf5a3366809a021f2196"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/rnd/kudu-service"
+  packages = ["auth"]
+  revision = "1a501243c388b662d0aca329bae3a32b4bc2174e"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/urfave/negroni"
+  packages = ["."]
+  revision = "c0db5feaa33826cd5117930c8f4ee5c0f565eec6"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/net"
+  packages = ["context","http2","http2/hpack","trace"]
+  revision = "a6577fac2d73be281a500b310739095313165611"
+
+[[projects]]
+  branch = "master"
+  name = "google.golang.org/grpc"
+  packages = [".","codes","metadata"]
+  revision = "cdee119ee21e61eef7093a41ba148fa83585e143"
