@@ -1,0 +1,4 @@
+; kudu web gateway settings
+
+[app]
+port="$PORT||5151"

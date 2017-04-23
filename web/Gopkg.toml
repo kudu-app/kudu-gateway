@@ -13,15 +13,7 @@
 
 [[dependencies]]
   branch = "master"
-  name = "github.com/rnd/kudu-service"
-
-[[dependencies]]
-  branch = "master"
   name = "github.com/urfave/negroni"
-
-[[dependencies]]
-  branch = "master"
-  name = "golang.org/x/net"
 
 [[dependencies]]
   branch = "master"

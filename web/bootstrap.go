@@ -1,11 +1,11 @@
-package app
+package main
 
 import (
 	"fmt"
 	"log"
 
 	"github.com/knq/envcfg"
-	"github.com/rnd/kudu-web/app/router"
+	"github.com/rnd/kudu-gateway/web/router"
 )
 
 // Kudu contains information needed to start kudu web application.
