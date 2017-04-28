@@ -46,7 +46,7 @@ memo = "6fb4e0e6b5a2af1a934a27ef3825f3d6c439d54ce62f5125b167da59ffa6e6ba"
   branch = "master"
   name = "golang.org/x/net"
   packages = ["context","http2","http2/hpack","idna","internal/timeseries","lex/httplex","trace"]
-  revision = "d212a1ef2de2f5d441c327b8f26cf3ea3ea9f265"
+  revision = "da118f7b8e5954f39d0d2130ab35d4bf0e3cb344"
 
 [[projects]]
   branch = "master"
@@ -64,4 +64,4 @@ memo = "6fb4e0e6b5a2af1a934a27ef3825f3d6c439d54ce62f5125b167da59ffa6e6ba"
   branch = "master"
   name = "google.golang.org/grpc"
   packages = [".","codes","credentials","grpclog","internal","keepalive","metadata","naming","peer","stats","status","tap","transport"]
-  revision = "72b617aacebed7836e806925e6f61eef55cb40c8"
+  revision = "38df39bad1892a821a4feac7f7506a19a13661f2"

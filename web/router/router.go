@@ -9,8 +9,7 @@ import (
 
 // Router holds routes information and methods to operate.
 type Router struct {
-	r      *mux.Router
-	routes []Route
+	R *mux.Router
 }
 
 // Route contains information for each of the kudu web route.
@@ -23,28 +22,16 @@ type Route struct {
 // New create new instance of kudu web router.
 func New() *Router {
 	router := new(Router)
-	router.r = mux.NewRouter().StrictSlash(true)
+	router.R = mux.NewRouter().StrictSlash(true)
 
 	return router
-}
-
-// RegisterRoutes registers kudu web routes.
-func (router *Router) RegisterRoutes(routeGroups ...[]*Route) {
-	for _, routes := range routeGroups {
-		for _, route := range routes {
-			router.r.
-				Methods(route.Method).
-				Path(route.Path).
-				HandlerFunc(route.Handler)
-		}
-	}
 }
 
 // Run is a wrapper for http.ListenAndServe.
 func (router *Router) Run(addr string) {
 	n := negroni.New()
 	n.Use(negroni.NewLogger())
-	n.UseHandler(router.r)
+	n.UseHandler(router.R)
 
 	http.ListenAndServe(addr, n)
 }

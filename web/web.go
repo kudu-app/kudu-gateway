@@ -1,10 +1,15 @@
-package main
+package web
 
 import (
 	"fmt"
 	"log"
 
 	"github.com/knq/envcfg"
+
+	"github.com/rnd/kudu-gateway/client"
+	"github.com/rnd/kudu-gateway/web/domain"
+	"github.com/rnd/kudu-gateway/web/domain/task"
+	"github.com/rnd/kudu-gateway/web/domain/user"
 	"github.com/rnd/kudu-gateway/web/router"
 )
 
@@ -12,6 +17,7 @@ import (
 type Kudu struct {
 	config *envcfg.Envcfg
 	router *router.Router
+	client client.KuduServiceClient
 }
 
 // Run starts kudu web application server.
@@ -34,10 +40,25 @@ func (k *Kudu) bootstrap() {
 	}
 
 	// setup app routes.
-	r := router.New()
-	// r.RegisterRoutes(home.Routes)
-	// r.RegisterRoutes(items.Routes)
-	k.router = r
+	k.router = router.New()
 
-	//TODO: Setup grpc client connection.
+	// grpc client connections.
+	k.client, err = client.New()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// register domain services.
+	k.plug(
+		user.Domain,
+		task.Domain,
+	)
+}
+
+// plug registers all kudu domains to kudu web api gateway.
+func (k *Kudu) plug(domains ...domain.Domain) {
+	for _, domain := range domains {
+		domain.PlugRoute(k.router)
+		domain.PlugClient(k.client)
+	}
 }
