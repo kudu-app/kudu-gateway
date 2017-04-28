@@ -2,6 +2,7 @@ package client
 
 import (
 	"log"
+	"os"
 
 	taskpb "github.com/rnd/kudu/golang/protogen/task"
 	userpb "github.com/rnd/kudu/golang/protogen/user"
@@ -20,8 +21,8 @@ func New() (KuduServiceClient, error) {
 		userpb.UserServiceClient
 		taskpb.TaskServiceClient
 	}{
-		UserServiceClient: userpb.NewUserServiceClient(mustDial("localhost:9111")),
-		TaskServiceClient: taskpb.NewTaskServiceClient(mustDial("localhost:9112")),
+		UserServiceClient: userpb.NewUserServiceClient(mustDial(os.Getenv("USER_SVC_SERVICE_HOST") + ":" + os.Getenv("USER_SVC_SERVICE_PORT"))),
+		TaskServiceClient: taskpb.NewTaskServiceClient(mustDial(os.Getenv("TASK_SVC_SERVICE_HOST") + ":" + os.Getenv("TASK_SVC_SERVICE_PORT"))),
 	}, nil
 }
 

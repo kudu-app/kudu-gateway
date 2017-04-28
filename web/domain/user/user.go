@@ -95,7 +95,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	response.JSON(w, http.StatusCreated, map[string]string{
+	response.JSON(w, http.StatusOK, map[string]string{
 		"status": res.Status.String(),
 		"token":  res.Token,
 	})
